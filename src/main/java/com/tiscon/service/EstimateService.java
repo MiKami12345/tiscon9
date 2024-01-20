@@ -91,8 +91,11 @@ public class EstimateService {
         if (dto.getWashingMachineInstallation()) {
             priceForOptionalService = estimateDAO.getPricePerOptionalService(OptionalServiceType.WASHING_MACHINE.getCode());
         }
-
+        
+        // #TODO
         return priceForDistance + pricePerTruck + priceForOptionalService;
+        // return priceForDistance;
+        // return pricePerTruck;
     }
 
     /**
