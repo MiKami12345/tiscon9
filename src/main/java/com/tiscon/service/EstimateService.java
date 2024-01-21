@@ -86,6 +86,10 @@ public class EstimateService {
         int pricePerTruck = estimateDAO.getPricePerTruck(boxes);
         // #TODO 201以上
 
+        if (pricePerTruck==-1){
+            return -1;
+        }
+
         // オプションサービスの料金を算出する。
         int priceForOptionalService = 0;
 
