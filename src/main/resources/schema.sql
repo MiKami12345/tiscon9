@@ -5,12 +5,12 @@ CREATE TABLE IF NOT EXISTS PREFECTURE
     PRIMARY KEY (PREFECTURE_ID)
 );
 
--- #TODO #9
 CREATE TABLE IF NOT EXISTS CUSTOMER
 (
     CUSTOMER_ID                     INT NOT NULL AUTO_INCREMENT,
     OLD_PREFECTURE_ID               CHAR(2) NOT NULL,
     NEW_PREFECTURE_ID               CHAR(2) NOT NULL,
+    MOVING_MONTH                    INT NOT NULL,
     CUSTOMER_NAME                   VARCHAR(60) NOT NULL,
     TEL                             VARCHAR(11) NOT NULL,
     EMAIL                           VARCHAR(256) NOT NULL,

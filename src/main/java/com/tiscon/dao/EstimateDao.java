@@ -36,10 +36,10 @@ public class EstimateDao {
      * @param customer 顧客情報
      * @return 登録件数
      */
-    // #TODO #9
+
     public int insertCustomer(Customer customer) {
-        String sql = "INSERT INTO CUSTOMER(OLD_PREFECTURE_ID, NEW_PREFECTURE_ID, CUSTOMER_NAME, TEL, EMAIL, OLD_ADDRESS, NEW_ADDRESS)"
-                + " VALUES(:oldPrefectureId, :newPrefectureId, :customerName, :tel, :email, :oldAddress, :newAddress)";
+        String sql = "INSERT INTO CUSTOMER(OLD_PREFECTURE_ID, NEW_PREFECTURE_ID, MOVING_MONTH, CUSTOMER_NAME, TEL, EMAIL, OLD_ADDRESS, NEW_ADDRESS)"
+                + " VALUES(:oldPrefectureId, :newPrefectureId, :movingMonth, :customerName, :tel, :email, :oldAddress, :newAddress)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int resultNum = parameterJdbcTemplate.update(sql, new BeanPropertySqlParameterSource(customer), keyHolder);
         customer.setCustomerId(keyHolder.getKey().intValue());
