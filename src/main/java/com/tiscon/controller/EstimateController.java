@@ -92,6 +92,10 @@ public class EstimateController {
         BeanUtils.copyProperties(userOrderForm, dto);
         Integer price = estimateService.getPrice(dto);
 
+        if (price==-1){
+            return "boxexcess";
+        }
+
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
         model.addAttribute("userOrderForm", userOrderForm);
         model.addAttribute("price", price);
