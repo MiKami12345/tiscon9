@@ -75,11 +75,29 @@ public class EstimateController {
      * @return 遷移先
      */
     @PostMapping(value = "submit", params = "confirm")
-    String confirm(UserOrderForm userOrderForm, Model model) {
+    String confirm(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
+        // String confirm(UserOrderForm userOrderForm, Model model) {
         // #TODO #8
+        
+        if (result.hasErrors()) {
+
+            model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+            model.addAttribute("userOrderForm", userOrderForm);
+            // #TODO #8
+            return "input";
+        }
+
+        // 料金の計算を行う。
+        UserOrderDto dto = new UserOrderDto();
+        BeanUtils.copyProperties(userOrderForm, dto);
+        Integer price = estimateService.getPrice(dto);
+
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
         model.addAttribute("userOrderForm", userOrderForm);
-        return "confirm";
+        model.addAttribute("price", price);
+
+        return "result";
+        // return "confirm";
     }
 
     /**
@@ -121,27 +139,57 @@ public class EstimateController {
     @PostMapping(value = "result", params = "calculation")
     String calculation(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
         // #TODO #8
-        if (result.hasErrors()) {
+        // if (result.hasErrors()) {
             
-            model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
-            model.addAttribute("userOrderForm", userOrderForm);
-            // #TODO #8
-            return "confirm";
-        }
+        //     model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+        //     model.addAttribute("userOrderForm", userOrderForm);
+        //     // #TODO #8
+        //     return "confirm";
+        // }
 
         // 料金の計算を行う。
-        UserOrderDto dto = new UserOrderDto();
-        BeanUtils.copyProperties(userOrderForm, dto);
-        Integer price = estimateService.getPrice(dto);
-        if (price==-1){
-            return "boxexcess";
-        }
-        model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
-        model.addAttribute("userOrderForm", userOrderForm);
-        model.addAttribute("price", price);
+        // UserOrderDto dto = new UserOrderDto();
+        // BeanUtils.copyProperties(userOrderForm, dto);
+        // Integer price = estimateService.getPrice(dto);
+        // if (price==-1){
+        //     return "boxexcess";
+        // }
+        // model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+        // model.addAttribute("userOrderForm", userOrderForm);
+        // model.addAttribute("price", price);
         return "result";
     }
 
+    /**
+     * 新申し込み画面に遷移する。
+     *
+     * @param userOrderForm 顧客が入力した見積もり依頼情報
+     * @param result        精査結果
+     * @param model         遷移先に連携するデータ
+     * @return 遷移先
+     */
+    @PostMapping(value = "order", params = "newinput")
+    String newinput(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
+        // if (result.hasErrors()) {
+
+        //     model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+        //     model.addAttribute("userOrderForm", userOrderForm);
+        //     return "confirm";
+        // }
+
+        model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+        model.addAttribute("userOrderForm", userOrderForm);
+
+        return "newinput";
+    }
+
+    @PostMapping(value = "submit", params = "confirmlast")
+    String confirmlast(UserOrderForm userOrderForm, Model model) {
+        // #TODO #8
+        model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+        model.addAttribute("userOrderForm", userOrderForm);
+        return "confirm";
+    }
     /**
      * 申し込み完了画面に遷移する。
      *
@@ -165,5 +213,4 @@ public class EstimateController {
 
         return "complete";
     }
-
 }

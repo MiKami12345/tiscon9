@@ -28,13 +28,13 @@ public class UserOrderForm {
     @NotBlank
     private String oldPrefectureId;
 
-    @NotBlank
+    // @NotBlank
     private String oldAddress;
 
     @NotBlank
     private String newPrefectureId;
 
-    @NotBlank
+    // @NotBlank
     private String newAddress;
 
     // @NotBlank

@@ -22,9 +22,9 @@
       <div class="text-center">
         <!-- #TODO 201以上 JSのscript -->
         <div class="primary-text"><span th:text="${price}"></span>円</div>
-        <button type="submit" name="complete" class="btn btn-primary">詳細見積もり依頼へ</button>
+        <button type="submit" name="newinput" class="btn btn-primary">詳細見積もり依頼へ</button>
       </div>
-      <div class="sub-title">お客様情報</div>
+      <!-- <div class="sub-title">お客様情報</div>
         <table class="table table-bordered">
         <col span="1" style="background-color: #FFFFFF;">
         <col span="2" style="background-color: #FFFFFF;">
@@ -45,7 +45,7 @@
           <input type="hidden" name="email" id="email" th:value="*{email}"/>
         </tr>
         </tbody>
-        </table>
+        </table> -->
       <div class="sub-title">集荷元・お届け先</div>
       <table class="table table-bordered">
         <col span="1" style="background-color: #FFFFFF;">
@@ -58,11 +58,11 @@
           </td>
           <input type="hidden" name="oldPrefectureId" id="oldPrefectureId" th:value="*{oldPrefectureId}"/>
         </tr>
-        <tr>
+        <!-- <tr>
           <th>転居元住所（市区町村以下）</th>
           <td><span th:text="*{oldAddress}"></span></td>
           <input type="hidden" name="oldAddress" id="oldAddress" th:value="*{oldAddress}"/>
-        </tr>
+        </tr> -->
         <tr>
           <th>転居先住所（都道府県）</th>
           <td>
@@ -70,11 +70,11 @@
           </td>
           <input type="hidden" name="newPrefectureId" id="newPrefectureId" th:value="*{newPrefectureId}"/>
         </tr>
-        <tr>
+        <!-- <tr>
           <th>転居先住所（市区町村以下）</th>
           <td><span th:text="*{newAddress}"></span></td>
           <input type="hidden" name="newAddress" id="newAddress" th:value="*{newAddress}"/>
-        </tr>
+        </tr> -->
         <!-- // #TODO #9 -->
           <th>引っ越し月</th>
           <td><span th:text="*{movingMonth}"></span></td>
