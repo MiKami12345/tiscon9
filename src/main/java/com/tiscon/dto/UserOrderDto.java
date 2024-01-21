@@ -1,7 +1,6 @@
 package com.tiscon.dto;
 
 public class UserOrderDto {
-    // #TODO #9
     // #TODO #6
     private String customerName;
 
@@ -16,6 +15,8 @@ public class UserOrderDto {
     private String newPrefectureId;
 
     private String newAddress;
+
+    private Integer movingMonth;
 
     private String box;
 
@@ -81,6 +82,14 @@ public class UserOrderDto {
 
     public void setNewAddress(String newAddress) {
         this.newAddress = newAddress;
+    }
+
+    public Integer getMovingMonth() {
+        return movingMonth;
+    }
+
+    public void setMovingMonth(Integer movingMonth) {
+        this.movingMonth = movingMonth;
     }
 
     public int getBox() {

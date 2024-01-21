@@ -12,7 +12,6 @@ import javax.validation.constraints.NotNull;
  * @author Oikawa Yumi
  */
 // #TODO #6
-// #TODO #9
 public class UserOrderForm {
 
     // @NotBlank
@@ -37,6 +36,9 @@ public class UserOrderForm {
 
     @NotBlank
     private String newAddress;
+
+    // @NotBlank
+    private Integer movingMonth;
 
     @Numeric
     @NotBlank
@@ -111,6 +113,14 @@ public class UserOrderForm {
 
     public void setNewAddress(String newAddress) {
         this.newAddress = newAddress;
+    }
+
+    public Integer getMovingMonth() {
+        return movingMonth;
+    }
+
+    public void setMovingMonth(Integer movingMonth) {
+        this.movingMonth = movingMonth;
     }
 
     public String getBox() {

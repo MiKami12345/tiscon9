@@ -3,12 +3,13 @@ package com.tiscon.domain;
 import java.io.Serializable;
 
 public class Customer implements Serializable {
-    // #TODO #9 月追加
     private Integer customerId;
 
     private String oldPrefectureId;
 
     private String newPrefectureId;
+
+    private Integer movingMonth;
 
     private String customerName;
 
@@ -42,6 +43,14 @@ public class Customer implements Serializable {
 
     public void setNewPrefectureId(String newPrefectureId) {
         this.newPrefectureId = newPrefectureId;
+    }
+
+    public Integer getMovingMonth() {
+        return movingMonth;
+    }
+
+    public void setMovingMonth(Integer movingMonth) {
+        this.movingMonth = movingMonth;
     }
 
     public String getCustomerName() {
