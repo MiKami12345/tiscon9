@@ -84,6 +84,7 @@ public class EstimateService {
 
         // 箱に応じてトラックの種類が変わり、それに応じて料金が変わるためトラック料金を算出する。
         int pricePerTruck = estimateDAO.getPricePerTruck(boxes);
+        // #TODO 201以上
 
         // オプションサービスの料金を算出する。
         int priceForOptionalService = 0;
@@ -92,7 +93,8 @@ public class EstimateService {
             priceForOptionalService = estimateDAO.getPricePerOptionalService(OptionalServiceType.WASHING_MACHINE.getCode());
         }
         
-        // #TODO
+        // #TODO #9
+        // if return (priceForDistance + pricePerTruck) + priceForOptionalService;
         return priceForDistance + pricePerTruck + priceForOptionalService;
         // return priceForDistance;
         // return pricePerTruck;

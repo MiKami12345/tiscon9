@@ -20,6 +20,7 @@
     <div class="page-title">
       お見積り情報入力
     </div>
+    <!-- // #TODO #8 -->
     <ul th:if="${#fields.hasErrors('all')}">
       <li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>
     </ul>
@@ -61,6 +62,7 @@
           <input type="text" id="newAddress" name="newAddress" th:field="*{newAddress}" class="form-control"
                  value="札幌市南区1"/>
         </div>
+        <!-- // #TODO #9 -->
       </fieldset>
       <fieldset>
       <div class="sub-title">お荷物情報</div>
@@ -71,6 +73,7 @@
         <div class="form-group">
           <label for="bed">ベッドの個数</label>
           <input type="text" id="bed" name="bed" th:field="*{bed}" class="form-control" value="3"/>
+          <!-- // #TODO #10 -->
           <!-- <select name="kosuu" id="bed" name="bed" class="form-control">
             <option value="0">0</option>
             <option value="1">1</option>

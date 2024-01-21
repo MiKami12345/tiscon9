@@ -20,6 +20,7 @@
     <div class="page-title">概算お見積り結果</div>
     <div class="col-sm-12">
       <div class="text-center">
+        <!-- #TODO 201以上 JSのscript -->
         <div class="primary-text"><span th:text="${price}"></span>円</div>
         <button type="submit" name="complete" class="btn btn-primary">詳細見積もり依頼へ</button>
       </div>
@@ -74,6 +75,7 @@
           <td><span th:text="*{newAddress}"></span></td>
           <input type="hidden" name="newAddress" id="newAddress" th:value="*{newAddress}"/>
         </tr>
+        <!-- // #TODO #9 -->
         </tbody>
       </table>
       <div class="sub-title">お荷物情報</div>

@@ -3,7 +3,7 @@ package com.tiscon.domain;
 import java.io.Serializable;
 
 public class Customer implements Serializable {
-
+    // #TODO #9 月追加
     private Integer customerId;
 
     private String oldPrefectureId;

@@ -36,6 +36,7 @@ public class EstimateDao {
      * @param customer 顧客情報
      * @return 登録件数
      */
+    // #TODO #9
     public int insertCustomer(Customer customer) {
         String sql = "INSERT INTO CUSTOMER(OLD_PREFECTURE_ID, NEW_PREFECTURE_ID, CUSTOMER_NAME, TEL, EMAIL, OLD_ADDRESS, NEW_ADDRESS)"
                 + " VALUES(:oldPrefectureId, :newPrefectureId, :customerName, :tel, :email, :oldAddress, :newAddress)";
@@ -132,7 +133,9 @@ public class EstimateDao {
         String sql = "SELECT PRICE FROM TRUCK_CAPACITY WHERE MAX_BOX >= :boxNum ORDER BY PRICE LIMIT 1";
 
         SqlParameterSource paramSource = new MapSqlParameterSource("boxNum", boxNum);
+        // #TODO 201以上
         return parameterJdbcTemplate.queryForObject(sql, paramSource, Integer.class);
+        
     }
 
     /**

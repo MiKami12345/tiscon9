@@ -1,7 +1,8 @@
 package com.tiscon.dto;
 
 public class UserOrderDto {
-
+    // #TODO #9
+    // #TODO #6
     private String customerName;
 
     private String tel;

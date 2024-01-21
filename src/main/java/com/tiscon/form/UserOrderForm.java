@@ -11,11 +11,13 @@ import javax.validation.constraints.NotNull;
  *
  * @author Oikawa Yumi
  */
+// #TODO #6
+// #TODO #9
 public class UserOrderForm {
 
     @NotBlank
     private String customerName;
-
+    
     @NotBlank
     @Numeric
     private String tel;
